@@ -272,25 +272,120 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+
             .container {
                 padding: 0;
             }
 
-            .header, .breaking-news, .section, .toast, .roast, .footer {
-                padding: 30px 25px;
+            .header {
+                padding: 35px 20px;
             }
 
             .header h1 {
-                font-size: 2.2em;
-                letter-spacing: 4px;
+                font-size: 2em;
+                letter-spacing: 3px;
+            }
+
+            .header .emoji {
+                font-size: 1.8em;
+            }
+
+            .subheader {
+                font-size: 1.1em;
+            }
+
+            .breaking-news {
+                padding: 25px 20px;
+            }
+
+            .breaking-news h3 {
+                font-size: 1.2em;
+            }
+
+            .section {
+                padding: 25px 20px;
             }
 
             .section-title {
-                font-size: 1.7em;
+                font-size: 1.6em;
+                letter-spacing: 1px;
             }
 
             .matchup {
-                padding: 20px;
+                padding: 18px;
+                margin: 18px 0;
+            }
+
+            .matchup h4 {
+                font-size: 1.15em;
+            }
+
+            .matchup p {
+                font-size: 1em;
+            }
+
+            .team-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 12px 15px;
+            }
+
+            .team-name {
+                font-size: 1em;
+            }
+
+            .team-record {
+                font-size: 0.9em;
+            }
+
+            .toast, .roast {
+                padding: 25px 20px;
+            }
+
+            .toast h3, .roast h3 {
+                font-size: 1.5em;
+            }
+
+            .nerd-nugget, .forecast {
+                padding: 15px 18px;
+                margin: 12px 0;
+            }
+
+            .forecast h4 {
+                font-size: 1.1em;
+            }
+
+            .footer {
+                padding: 30px 20px;
+                font-size: 1.1em;
+            }
+
+            .standings-group h4 {
+                font-size: 1.15em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6em;
+                letter-spacing: 2px;
+            }
+
+            .subheader {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+
+            .matchup h4 {
+                font-size: 1.05em;
+                line-height: 1.4;
             }
         }
     </style>
@@ -306,7 +401,7 @@
 
         <div class="breaking-news">
             <h3>BREAKING: UNDEFEATED STREAK OBLITERATED, LEAGUE IN SHAMBLES</h3>
-            <p>Well well well, if it isn't the week we've all been waiting for. After six weeks of watching tim7w strut around like he owned the place, karma finally showed up fashionably late and absolutely BODIED our fearless leader. The mighty have fallen, folks, and they fell HARD. Meanwhile, the playoff picture is getting spicier than a Nashville hot chicken sandwich, with three teams sitting pretty at 6-1 and the rest of you bums scrambling for scraps. At the bottom? Oh boy, the toilet bowl bracket is practically selecting itself. LewDogz is out here playing for draft position like it's the NBA, and honestly? Respect the tank job.</p>
+            <p>Well well well, if it isn't the week we've all been waiting for. After six weeks of watching tim7w strut around like he owned the place, karma finally showed up fashionably late and absolutely BODIED our fearless leader. Pelicanpete and the Kempsey Cum and fuck mes dropped 162.55 points to end the undefeated streak in BRUTAL fashion. The mighty have fallen, folks, and they fell HARD. Meanwhile, the playoff picture is getting spicier than a Nashville hot chicken sandwich, with three teams sitting pretty at 6-1 and the rest of you bums scrambling for scraps. At the bottom? Oh boy, the toilet bowl bracket is practically selecting itself. LewDogz is out here playing for draft position like it's the NBA, and honestly? Respect the tank job.</p>
         </div>
 
         <div class="section">
@@ -314,44 +409,45 @@
 
             <div class="matchup">
                 <h4>Matchup 1: Mals Pals (145.3) DEMOLISHES Deep Balls and Grimace (96.1)</h4>
-                <p>Mahl came out here looking like he remembered this was a buy in league. 145.3 points is the kind of score that makes grown men weep and children ask uncomfortable questions. Baker Mayfield at FLEX putting up 12.4? That's not a strategy, that's performance art. And it WORKED. Meanwhile, Lamar Jackson decided Week 7 was a great time to take a personal day (Out), leaving ronaldmcdonaId scrambling. Jordan Love filled in with a respectable 13.15, but when your QB1 literally doesn't play, you're basically bringing a knife to a gunfight.</p>
-                <p>The real story? Dak Prescott going for 24.9, CeeDee Lamb dropping 19.5, and Keenan Allen absolutely FEASTING for 23.4 points. This wasn't just a complete roster showing up - this was a symphony of fantasy perfection. Even Chris Boswell the KICKER chipped in 8.0 like he's out here trying to win MVP. Deep Balls and Grimace got absolutely pantsed on national television (if anyone was watching, which they weren't).</p>
-                <p>Josh Jacobs tried his best with 18.3 points for the losing side, and Ladd McConkey added 11.2, but when you're down your starting QB and your TE (Mason Taylor) only manages 4.6, you're cooked. The final margin? A soul-crushing 49.2 points. That's the kind of loss that makes you question your fantasy football abilities, your life choices, and whether you should've just taken up knitting instead.</p>
+                <p>Mahl came out here looking like he remembered this was a dynasty league and his players might actually matter long-term. 145.3 points is the kind of score that makes grown men weep and children ask uncomfortable questions. Baker Mayfield at FLEX putting up 12.4? That's not a strategy, that's performance art. And it WORKED. Meanwhile, Lamar Jackson was out, leaving ronaldmcdonaId scrambling with Spencer Rattler (11.85) filling in at QB. When your starting QB is literally not available and you're rolling with a backup, you're basically bringing a knife to a gunfight.</p>
+                <p>The real story? Dak Prescott going for 24.9, CeeDee Lamb dropping 19.5, and Keenan Allen absolutely FEASTING for 23.4 points. This wasn't just a complete roster showing up - this was a symphony of fantasy perfection. Even Chris Boswell the KICKER chipped in 8.0 like he's out here trying to win MVP. The Patriots defense added 19.0 points because apparently even New England's defense can score against someone.</p>
+                <p>Josh Jacobs tried his best with 18.3 points for the losing side, and Ladd McConkey added 11.2 with Jordan Mason contributing 11.7. But when you're down your starting QB and Sterling Shepard only manages 3.0 points, you're cooked. The final margin? A soul-crushing 49.2 points. That's the kind of loss that makes you question your fantasy football abilities, your life choices, and whether you should've just taken up knitting instead.</p>
             </div>
 
             <div class="matchup">
                 <h4>Matchup 2: JackinGoff (103.8) edges Surtainly Autistic (97.7)</h4>
                 <p>This was the battle of "who can score less and still feel good about themselves," and somehow Jacob0973 won that race to the bottom with 103.8 points. But hey, a win's a win, and when you're 6-1, you don't apologize for ugly victories. Drake Maye at QB went for 25.3 points - the rookie is OUT HERE making plays. Bijan Robinson added 18.2, and Rashee Rice dropped 19.7 because apparently he's still relevant in 2025.</p>
-                <p>The problem for PackJhilp? They had NO TIGHT END. Like, literally an empty roster spot. That's a ZERO right there, folks. You can't win games giving away free points like that. Daniel Jones at QB actually had a solid outing with 25.1 points, and DeVonta Smith went NUCLEAR for 28.8 points, but when Alvin Kamara only gets you 4.4 and David Montgomery adds 4.9, your RB situation is looking more tragic than a Nicholas Sparks movie.</p>
+                <p>The problem for PackJhilp? Darren Waller was OUT at tight end, giving them a big fat ZERO at that position. You can't win games giving away free points like that. Daniel Jones at QB actually had a solid outing with 25.1 points, and DeVonta Smith went NUCLEAR for 28.8 points, but when Alvin Kamara only gets you 4.4 and David Montgomery adds 4.9, your RB situation is looking more tragic than a Nicholas Sparks movie.</p>
                 <p>Final score: 103.8 to 97.7. A margin of 6.1 points. That empty TE slot? That's the difference right there. Fantasy football is a cruel mistress, and she showed no mercy this week.</p>
             </div>
 
             <div class="matchup">
-                <h4>Matchup 3: Push Tush for Reggie Bush (151.55) ENDS THE UNDEFEATED STREAK, beats tim7w (133.65)</h4>
+                <h4>Matchup 3: Kempsey Cum and fuck mes (162.55) ENDS THE UNDEFEATED STREAK, beats tim7w (133.65)</h4>
                 <p>HERE IT IS. THE GAME OF THE WEEK. THE UPSET OF THE SEASON. THE MOMENT WE'VE ALL BEEN WAITING FOR.</p>
-                <p>GrifReaper came into this matchup at 2-4 with absolutely nothing to lose and everything to prove, and they played like WARRIORS. Jaxson Dart at QB went absolutely nuclear for 31.25 points. The rookie out of Ole Miss (now on the Giants) put the entire team on his back and said "NOT TODAY, UNDEFEATED OVERLORD." Bijan Robinson added an INSANE 35.3 points - that's not RB production, that's a STATEMENT. Alec Pierce with 17.6, Tucker Kraft with 14.3, and even Tez Johnson chipping in 13.8. This team was CLICKING on all cylinders.</p>
-                <p>But let's talk about tim7w for a second. 133.65 points is normally PLENTY to win. Christian McCaffrey went OFF for 35.6 (welcome back, king), and Jalen Hurts added 27.3 for good measure. Quinshon Judkins with 26.4 is exactly the kind of rookie production that wins championships. So what went wrong? THE WASHINGTON COMMANDERS DEFENSE PUT UP -1 POINT. That's not a typo. NEGATIVE. ONE. Your defense literally cost you points, and in a close game like this, that's the difference between staying undefeated and joining the mortals.</p>
-                <p>Final score: 151.55 to 133.65. The margin? 17.9 points. The significance? EVERYTHING. Six weeks of dominance, GONE. Erased. Thanos-snapped out of existence. tim7w is no longer undefeated, and the league is WIDE OPEN.</p>
+                <p>Pelicanpete came into this matchup at 5-1 and dropped a BIBLICAL 162.55 points to absolutely DESTROY tim7w's perfect season. Jonathan Taylor went OFF for 32.7 points. Davante Adams added 24.0. Jaxon Smith-Njigba contributed 22.3. Tyler Warren at TE put up 14.9. This wasn't just a good week - this was PERFECTION. And here's the kicker: Bryce Young was OUT, so Sam Darnold filled in at QB with 9.75 points. They scored 162.55 WITH THEIR BACKUP QB.</p>
+                <p>But let's talk about tim7w for a second. 133.65 points is normally PLENTY to win. Christian McCaffrey went OFF for 35.6 (welcome back, king), and Jalen Hurts added 27.3 for good measure. Quinshon Judkins with 26.4 is exactly the kind of rookie production that wins championships. Jared Goff at backup QB even contributed 11.75. So what went wrong? THE WASHINGTON COMMANDERS DEFENSE PUT UP -1 POINT. That's not a typo. NEGATIVE. ONE. Your defense literally cost you points, and in a game like this, that's dagger after dagger after dagger.</p>
+                <p>Final score: 162.55 to 133.65. The margin? 28.9 points. The significance? EVERYTHING. Six weeks of dominance, GONE. Erased. Thanos-snapped out of existence. tim7w is no longer undefeated, and the league is WIDE OPEN.</p>
             </div>
 
             <div class="matchup">
                 <h4>Matchup 4: Post Chubb Depression (127.65) destroys They Hit The 2nd Bower (99.3)</h4>
-                <p>Snackadaktal put up 127.65 points and made it look EASY against LewDogz, who's now sitting at a disastrous 1-6 and probably googling "is there a mercy rule in fantasy football?" Bo Nix went nuclear for 41.75 points - THE HIGHEST INDIVIDUAL SCORE OF THE ENTIRE WEEK. FORTY-ONE POINT SEVEN FIVE. That's not a quarterback performance, that's a war crime. The Denver rookie put up numbers that would make Patrick Mahomes jealous. Jake Ferguson at TE added 18.4, D'Andre Swift contributed 20.3, and even the Eagles D/ST chipped in 12.0 because apparently the entire roster wanted to pile on.</p>
-                <p>Meanwhile, LewDogz managed 99.3 points, which is somehow both respectable and completely inadequate. Matthew Stafford put up 29.2 (genuinely good!), and Jayden Daniels came off the bench to add 18.3 despite being listed as Out. How does that even work? Did he sneak onto the field? Michael Pittman Jr. with 17.3 was solid production. But when your kicker (Cam Little) puts up a big fat ZERO and your TE (Hunter Henry) only manages 5.3, you're not winning games. You're just delaying the inevitable.</p>
+                <p>Snackadaktal put up 127.65 points and made it look EASY against LewDogz, who's now sitting at a disastrous 1-6 and probably googling "is there a mercy rule in fantasy football?" Bo Nix went nuclear for 41.75 points - THE HIGHEST INDIVIDUAL SCORE OF THE ENTIRE WEEK. FORTY-ONE POINT SEVEN FIVE. That's not a quarterback performance, that's a war crime. The Denver rookie put up numbers that would make Patrick Mahomes jealous. Jake Ferguson at TE added 18.4, Javonte Williams contributed 18.3, and D'Andre Swift put up 20.3. Even the Eagles D/ST chipped in 12.0 because apparently the entire roster wanted to pile on.</p>
+                <p>Meanwhile, LewDogz managed 99.3 points, which is somehow both respectable and completely inadequate. Matthew Stafford put up 29.2 (genuinely good!), and Jayden Daniels came off the bench despite being listed as OUT to add 18.3. How does that even work? Did he sneak onto the field in disguise? Michael Pittman Jr. with 17.3 was solid production. But when your kicker (Cam Little) puts up a big fat ZERO and your TE (Hunter Henry) only manages 5.3, you're not winning games. You're just delaying the inevitable.</p>
                 <p>The loss drops LewDogz to 1-6, which means they're not just in the toilet bowl - they're actively scrubbing it with a toothbrush. This is the kind of season that makes you consider whether fantasy football is even fun anymore, or if you're just here for the punishment.</p>
             </div>
 
             <div class="matchup">
                 <h4>Matchup 5: MaHomie N Herbie (162.9) obliterates Rashee's Ricests (109.3)</h4>
                 <p>DazzaD1 showed up with 162.9 points - THE HIGHEST SCORE OF THE ENTIRE WEEK - and reminded everyone why having both Patrick Mahomes AND Justin Herbert is either galaxy brain or completely insane. Mahomes dropped 29.1 points, Herbert went for 32.1, and between them they accounted for over 60 points of production. That's not a quarterback strategy, that's a CHEAT CODE. Trey McBride at TE added 24.4 because why not, and A.J. Brown (26.1) reminded everyone that he's still that dude. The Bears D/ST even contributed 14.0 points. This wasn't a roster, this was an ALL-STAR TEAM.</p>
-                <p>ChubbyChaser20's Rashee's Ricests managed 109.3 points, which honestly isn't terrible considering their injury situation. But here's the problem: Geno Smith at QB putting up 2.45 points is the kind of performance that makes you wonder if he thought the game was next week. TWO POINT FOUR FIVE. That's not QB production, that's a rounding error. Chris Olave saved some face with 24.3, and DK Metcalf added 6.5, but when your QB1 forgets how to play football, you're COOKED.</p>
+                <p>ChubbyChaser20's Rashee's Ricests managed 109.3 points, which honestly isn't terrible. But here's the problem: Geno Smith at QB putting up 2.45 points is the kind of performance that makes you wonder if he thought the game was next week. TWO POINT FOUR FIVE. That's not QB production, that's a rounding error. Chris Olave saved some face with 24.3, Jacoby Brissett at backup QB contributed 21.55, and Cam Skattebo added 16.9 at RB. But when your QB1 forgets how to play football, you're COOKED.</p>
                 <p>The final margin: 53.6 points. That's not a loss, that's a public execution. That's the kind of beating that gets mentioned at Thanksgiving dinner three years later.</p>
             </div>
 
             <div class="matchup">
-                <h4>Matchup 6: Mals Pals (145.3) beats Kmet the frog (125.35)</h4>
-                <p>We've got williamdundas27 dropping 125.35 points in a losing effort, which is honestly tragic. Joe Flacco coming off the bench to throw 29.4 points is the kind of chaos we LIVE for in fantasy football. The man is 40 years old (probably) and still slinging it like he's got something to prove. Ja'Marr Chase with 30.1 points proved once again that he's an absolute STUD, and C.J. Stroud adding 15.95 was solid QB1 production.</p>
-                <p>But here's the thing: when you're facing Dak Prescott (24.9), CeeDee Lamb (19.5), and Keenan Allen (23.4), you need PERFECTION. And williamdundas27 didn't have it. Ashton Jeanty at RB with only 3.9 points is ROUGH. That's "did he even show up to the stadium?" production. Jaylen Waddle with 2.0? That's not WR2 numbers, that's "please check if he's still alive" numbers. Nick Chubb (who got traded to Houston apparently?) only managed 1.6 points. The final margin of 19.95 points tells the story: close, competitive, but ultimately not enough.</p>
+                <h4>Matchup 6: Push Tush for Reggie Bush (151.55) crushes Kmet the frog (125.35)</h4>
+                <p>GrifReaper put up an absolutely MONSTROUS 151.55 points against williamdundas27's 125.35. This was a shootout, folks. Both teams came to PLAY. Jahmyr Gibbs went absolutely nuclear for 35.3 points - tied for second-highest individual score of the week. Jaxson Dart at backup QB dropped 31.25 points (that Ole Miss rookie is a PROBLEM). Trevor Lawrence added 20.6, Amon-Ra St. Brown contributed 17.6, and Tucker Kraft chipped in 14.3 at TE. Even with Mike Evans putting up a ZERO (Out), they still dropped 151.55 points. That's DEPTH.</p>
+                <p>On the losing side, williamdundas27 actually had a pretty solid outing. Joe Flacco coming off the bench to throw 29.4 points is the kind of chaos we LIVE for in fantasy football. The man is ancient and still slinging it like he's got something to prove. Ja'Marr Chase with 30.1 points proved once again that he's an absolute STUD, and C.J. Stroud adding 15.95 was solid QB1 production. George Pickens contributed 10.2.</p>
+                <p>But here's the thing: when you're facing Jahmyr Gibbs going for 35.3 and Jaxson Dart putting up 31.25, you need PERFECTION. And williamdundas27 didn't have it. Ashton Jeanty at RB with only 3.9 points is ROUGH. Nick Chubb managed just 1.6 points. Jaylen Waddle with 2.0? That's not WR production, that's "please check if he's still alive" numbers. The final margin of 26.2 points tells the story: competitive, but ultimately not enough against a team firing on all cylinders.</p>
             </div>
         </div>
 
@@ -450,7 +546,7 @@
             </div>
 
             <div class="nerd-nugget">
-                <strong>Lowest Team Score:</strong> Surtainly Autistic with 97.7 points. When you leave roster spots empty, this is what happens.
+                <strong>Lowest Team Score:</strong> Deep Balls and Grimace with 96.1 points. Lamar Jackson being out absolutely killed their chances.
             </div>
 
             <div class="nerd-nugget">
@@ -458,17 +554,18 @@
             </div>
 
             <div class="nerd-nugget">
-                <strong>Closest Game:</strong> JackinGoff edging Surtainly Autistic by just 6.1 points (103.8 to 97.7). The empty TE slot was literally the difference.
+                <strong>Closest Game:</strong> JackinGoff edging Surtainly Autistic by just 6.1 points (103.8 to 97.7). The Out tight end was literally the difference.
             </div>
 
             <div class="nerd-nugget">
                 <strong>Notable Performances:</strong>
                 <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Bijan Robinson (35.3) - Future league winner material</li>
+                    <li>Bo Nix (41.75) - Highest score of the week, absolute monster</li>
                     <li>Christian McCaffrey (35.6) - The king has returned</li>
-                    <li>Justin Herbert (32.1) - Still got it</li>
+                    <li>Jahmyr Gibbs (35.3) - Future league winner material</li>
                     <li>Jonathan Taylor (32.7) - RB1 season activated</li>
-                    <li>Jaxson Dart (31.25) - Rookie QB carrying teams to upsets</li>
+                    <li>Justin Herbert (32.1) - Still got it</li>
+                    <li>Jaxson Dart (31.25) - Rookie QB carrying teams to wins</li>
                     <li>Ja'Marr Chase (30.1) - Absolute monster</li>
                     <li>Matthew Stafford (29.2) - In a losing effort, respect</li>
                     <li>Patrick Mahomes (29.1) - Doing Patrick Mahomes things</li>
@@ -482,8 +579,9 @@
                     <li>Washington Commanders D/ST (-1.0) - Cost tim7w the undefeated season</li>
                     <li>Geno Smith (2.45) - Completely washed</li>
                     <li>Cam Little (0.0) - Kickers need opportunities too</li>
-                    <li>All the "Out" players still in starting lineups - set your rosters, people!</li>
-                    <li>Nick Chubb (1.6) - Tough scene for the Post Chubb Depression owner</li>
+                    <li>Nico Collins, Mike Evans, Darren Waller (0.0) - All Out but still in starting lineups</li>
+                    <li>Nick Chubb (1.6) - Tough scene</li>
+                    <li>Jaylen Waddle (2.0) - Is he okay?</li>
                 </ul>
             </div>
         </div>
@@ -503,7 +601,7 @@
             </div>
 
             <div class="forecast">
-                <p><strong>Matchup 3: Push Tush for Reggie Bush vs tim7w</strong> - IMMEDIATE REMATCH after that Week 7 upset! Can tim7w get revenge, or will GrifReaper prove it wasn't a fluke?</p>
+                <p><strong>Matchup 3: Push Tush for Reggie Bush vs tim7w</strong> - Can tim7w bounce back from their first loss? GrifReaper just dropped 151.55 points and looks dangerous. This is a must-win for tim7w to maintain pace.</p>
             </div>
 
             <div class="forecast">
@@ -518,8 +616,8 @@
                 <p><strong>Matchup 6: Mals Pals vs Kmet the frog</strong> - Mahl looking to keep the momentum going against williamdundas27. Both teams need wins to stay in the playoff hunt.</p>
             </div>
 
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 5px;">
-                <h4 style="color: #ffa500; margin-bottom: 10px;">The Big Picture:</h4>
+            <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.03); border-radius: 5px;">
+                <h4 style="color: #27ae60; margin-bottom: 10px;">The Big Picture:</h4>
                 <ul style="margin-left: 20px;">
                     <li>Playoff spots are getting locked up fast</li>
                     <li>The toilet bowl bracket is basically set (sorry LewDogz, ronaldmcdonaId, PackJhilp, and williamdundas27)</li>
@@ -529,7 +627,7 @@
                 </ul>
             </div>
 
-            <p style="margin-top: 20px; font-style: italic;">Week 8 is where seasons are made or broken. Get your lineups set, check your injury reports, and FOR THE LOVE OF GOD don't leave roster spots empty. Because in fantasy football, the only thing worse than losing is losing because you forgot to set your lineup.</p>
+            <p style="margin-top: 20px; font-style: italic;">Week 8 is where seasons are made or broken. Get your lineups set, check your injury reports, and FOR THE LOVE OF GOD don't leave roster spots empty or start players who are Out. Because in fantasy football, the only thing worse than losing is losing because you forgot to set your lineup.</p>
         </div>
 
         <div class="footer">
