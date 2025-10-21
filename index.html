@@ -271,6 +271,51 @@
             font-weight: 600;
         }
 
+        .team-filter {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .team-filter label {
+            color: #ecf0f1;
+            font-size: 1.1em;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        .team-filter select {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: 2px solid #27ae60;
+            border-radius: 6px;
+            background: #fff;
+            color: #2c3e50;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .team-filter select:hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+        .team-filter select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3);
+        }
+
+        .filtered-out {
+            display: none !important;
+        }
+
+        .highlight-team {
+            background: #fff9e6 !important;
+            border-left-color: #f39c12 !important;
+            border-left-width: 6px !important;
+        }
+
         @media (max-width: 768px) {
             body {
                 font-size: 15px;
@@ -397,6 +442,25 @@
             <h1>The Gridiron Gazette</h1>
             <div class="emoji">🏈</div>
             <div class="subheader">Week 7 Edition: The Fall of Rome (and tim7w)</div>
+            
+            <div class="team-filter">
+                <label for="teamSelect">Filter by Team:</label>
+                <select id="teamSelect">
+                    <option value="all">Show All Teams</option>
+                    <option value="malspals">Mals Pals</option>
+                    <option value="deepballs">Deep Balls and Grimace</option>
+                    <option value="jackingoff">JackinGoff</option>
+                    <option value="surtainly">Surtainly Autistic</option>
+                    <option value="kempsey">Kempsey Cum and fuck mes</option>
+                    <option value="tim7w">tim7w</option>
+                    <option value="postchubb">Post Chubb Depression</option>
+                    <option value="theyhit">They Hit The 2nd Bower</option>
+                    <option value="mahomie">MaHomie N Herbie</option>
+                    <option value="rashees">Rashee's Ricests</option>
+                    <option value="pushtush">Push Tush for Reggie Bush</option>
+                    <option value="kmet">Kmet the frog</option>
+                </select>
+            </div>
         </div>
 
         <div class="breaking-news">
@@ -407,21 +471,21 @@
         <div class="section">
             <h2 class="section-title">🔥 SCOREBOARD & SHENANIGANS 🔥</h2>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="malspals deepballs">
                 <h4>Matchup 1: Mals Pals (145.3) DEMOLISHES Deep Balls and Grimace (96.1)</h4>
                 <p>Mahl came out here looking like he remembered this was a buy-in league. 145.3 points is the kind of score that makes grown men weep and children ask uncomfortable questions. Baker Mayfield at FLEX putting up 12.4? That's not a strategy, that's performance art. And it WORKED. Meanwhile, Lamar Jackson was out, leaving ronaldmcdonaId scrambling with Spencer Rattler (11.85) filling in at QB. When your starting QB is literally not available and you're rolling with a backup, you're basically bringing a knife to a gunfight.</p>
                 <p>The real story? Dak Prescott going for 24.9, CeeDee Lamb dropping 19.5, and Keenan Allen absolutely FEASTING for 23.4 points. This wasn't just a complete roster showing up - this was a symphony of fantasy perfection. Even Chris Boswell the KICKER chipped in 8.0 like he's out here trying to win MVP. The Patriots defense added 19.0 points because apparently even New England's defense can score against someone.</p>
                 <p>Josh Jacobs tried his best with 18.3 points for the losing side, and Ladd McConkey added 11.2 with Jordan Mason contributing 11.7. But when you're down your starting QB and Sterling Shepard only manages 3.0 points, you're cooked. The final margin? A soul-crushing 49.2 points. That's the kind of loss that makes you question your fantasy football abilities, your life choices, and whether you should've just taken up knitting instead.</p>
             </div>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="jackingoff surtainly">
                 <h4>Matchup 2: JackinGoff (103.8) edges Surtainly Autistic (97.7)</h4>
                 <p>This was the battle of "who can score less and still feel good about themselves," and somehow Jacob0973 won that race to the bottom with 103.8 points. But hey, a win's a win, and when you're 6-1, you don't apologize for ugly victories. Drake Maye at QB went for 25.3 points - the rookie is OUT HERE making plays. Bijan Robinson added 18.2, and Rashee Rice dropped 19.7 because apparently he's still relevant in 2025.</p>
                 <p>The problem for PackJhilp? Darren Waller was OUT at tight end, giving them a big fat ZERO at that position. You can't win games giving away free points like that. Daniel Jones at QB actually had a solid outing with 25.1 points, and DeVonta Smith went NUCLEAR for 28.8 points, but when Alvin Kamara only gets you 4.4 and David Montgomery adds 4.9, your RB situation is looking more tragic than a Nicholas Sparks movie.</p>
                 <p>Final score: 103.8 to 97.7. A margin of 6.1 points. That empty TE slot? That's the difference right there. Fantasy football is a cruel mistress, and she showed no mercy this week.</p>
             </div>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="kempsey tim7w">
                 <h4>Matchup 3: Kempsey Cum and fuck mes (162.55) ENDS THE UNDEFEATED STREAK, beats tim7w (133.65)</h4>
                 <p>HERE IT IS. THE GAME OF THE WEEK. THE UPSET OF THE SEASON. THE MOMENT WE'VE ALL BEEN WAITING FOR.</p>
                 <p>Pelicanpete came into this matchup at 5-1 and dropped a BIBLICAL 162.55 points to absolutely DESTROY tim7w's perfect season. Jonathan Taylor went OFF for 32.7 points. Davante Adams added 24.0. Jaxon Smith-Njigba contributed 22.3. Tyler Warren at TE put up 14.9. This wasn't just a good week - this was PERFECTION. And here's the kicker: Bryce Young was OUT, so Sam Darnold filled in at QB with 9.75 points. They scored 162.55 WITH THEIR BACKUP QB.</p>
@@ -429,21 +493,21 @@
                 <p>Final score: 162.55 to 133.65. The margin? 28.9 points. The significance? EVERYTHING. Six weeks of dominance, GONE. Erased. Thanos-snapped out of existence. tim7w is no longer undefeated, and the league is WIDE OPEN.</p>
             </div>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="postchubb theyhit">
                 <h4>Matchup 4: Post Chubb Depression (127.65) destroys They Hit The 2nd Bower (99.3)</h4>
                 <p>Snackadaktal put up 127.65 points and made it look EASY against LewDogz, who's now sitting at a disastrous 1-6 and probably googling "is there a mercy rule in fantasy football?" Bo Nix went nuclear for 41.75 points - THE HIGHEST INDIVIDUAL SCORE OF THE ENTIRE WEEK. FORTY-ONE POINT SEVEN FIVE. That's not a quarterback performance, that's a war crime. The Denver rookie put up numbers that would make Patrick Mahomes jealous. Jake Ferguson at TE added 18.4, Javonte Williams contributed 18.3, and D'Andre Swift put up 20.3. Even the Eagles D/ST chipped in 12.0 because apparently the entire roster wanted to pile on.</p>
                 <p>Meanwhile, LewDogz managed 99.3 points, which is somehow both respectable and completely inadequate. Matthew Stafford put up 29.2 (genuinely good!), and Jayden Daniels came off the bench despite being listed as OUT to add 18.3. How does that even work? Did he sneak onto the field in disguise? Michael Pittman Jr. with 17.3 was solid production. But when your kicker (Cam Little) puts up a big fat ZERO and your TE (Hunter Henry) only manages 5.3, you're not winning games. You're just delaying the inevitable.</p>
                 <p>The loss drops LewDogz to 1-6, which means they're not just in the toilet bowl - they're actively scrubbing it with a toothbrush. This is the kind of season that makes you consider whether fantasy football is even fun anymore, or if you're just here for the punishment.</p>
             </div>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="mahomie rashees">
                 <h4>Matchup 5: MaHomie N Herbie (162.9) obliterates Rashee's Ricests (109.3)</h4>
                 <p>DazzaD1 showed up with 162.9 points - THE HIGHEST SCORE OF THE ENTIRE WEEK - and reminded everyone why having both Patrick Mahomes AND Justin Herbert is either galaxy brain or completely insane. Mahomes dropped 29.1 points, Herbert went for 32.1, and between them they accounted for over 60 points of production. That's not a quarterback strategy, that's a CHEAT CODE. Trey McBride at TE added 24.4 because why not, and A.J. Brown (26.1) reminded everyone that he's still that dude. The Bears D/ST even contributed 14.0 points. This wasn't a roster, this was an ALL-STAR TEAM.</p>
                 <p>ChubbyChaser20's Rashee's Ricests managed 109.3 points, which honestly isn't terrible. But here's the problem: Geno Smith at QB putting up 2.45 points is the kind of performance that makes you wonder if he thought the game was next week. TWO POINT FOUR FIVE. That's not QB production, that's a rounding error. Chris Olave saved some face with 24.3, Jacoby Brissett at backup QB contributed 21.55, and Cam Skattebo added 16.9 at RB. But when your QB1 forgets how to play football, you're COOKED.</p>
                 <p>The final margin: 53.6 points. That's not a loss, that's a public execution. That's the kind of beating that gets mentioned at Thanksgiving dinner three years later.</p>
             </div>
 
-            <div class="matchup">
+            <div class="matchup" data-teams="pushtush kmet">
                 <h4>Matchup 6: Push Tush for Reggie Bush (151.55) crushes Kmet the frog (125.35)</h4>
                 <p>GrifReaper put up an absolutely MONSTROUS 151.55 points against williamdundas27's 125.35. This was a shootout, folks. Both teams came to PLAY. Jahmyr Gibbs went absolutely nuclear for 35.3 points - tied for second-highest individual score of the week. Jaxson Dart at backup QB dropped 31.25 points (that Ole Miss rookie is a PROBLEM). Trevor Lawrence added 20.6, Amon-Ra St. Brown contributed 17.6, and Tucker Kraft chipped in 14.3 at TE. Even with Mike Evans putting up a ZERO (Out), they still dropped 151.55 points. That's DEPTH.</p>
                 <p>On the losing side, williamdundas27 actually had a pretty solid outing. Joe Flacco coming off the bench to throw 29.4 points is the kind of chaos we LIVE for in fantasy football. The man is ancient and still slinging it like he's got something to prove. Ja'Marr Chase with 30.1 points proved once again that he's an absolute STUD, and C.J. Stroud adding 15.95 was solid QB1 production. George Pickens contributed 10.2.</p>
@@ -457,15 +521,15 @@
             <div class="standings-table">
                 <div class="standings-group">
                     <h4>PLAYOFF CONTENDERS (The Big Dogs)</h4>
-                    <div class="team-row">
+                    <div class="team-row" data-team="kempsey">
                         <span class="team-name">1. Kempsey Cum and fuck mes (Pelicanpete)</span>
                         <span class="team-record">6-1, 1147 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="tim7w">
                         <span class="team-name">2. tim7w</span>
                         <span class="team-record">6-1, 928 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="jackingoff">
                         <span class="team-name">3. JackinGoff (Jacob0973)</span>
                         <span class="team-record">6-1, 895 pts</span>
                     </div>
@@ -473,23 +537,23 @@
 
                 <div class="standings-group">
                     <h4>BUBBLE BOYS (Fighting For Their Lives)</h4>
-                    <div class="team-row">
+                    <div class="team-row" data-team="mahomie">
                         <span class="team-name">4. MaHomie N Herbie (DazzaD1)</span>
                         <span class="team-record">4-3, 904 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="postchubb">
                         <span class="team-name">5. Post Chubb Depression (Snackadaktal)</span>
                         <span class="team-record">4-3, 860 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="malspals">
                         <span class="team-name">6. Mals Pals (Mahl)</span>
                         <span class="team-record">3-4, 876 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="pushtush">
                         <span class="team-name">7. Push Tush for Reggie Bush (GrifReaper)</span>
                         <span class="team-record">3-4, 840 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="rashees">
                         <span class="team-name">8. Rashee's Ricests (ChubbyChaser20)</span>
                         <span class="team-record">3-4, 777 pts</span>
                     </div>
@@ -497,19 +561,19 @@
 
                 <div class="standings-group">
                     <h4>TOILET BOWL BOUND (Pray For Them)</h4>
-                    <div class="team-row">
+                    <div class="team-row" data-team="kmet">
                         <span class="team-name">9. Kmet the frog (williamdundas27)</span>
                         <span class="team-record">2-5, 824 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="surtainly">
                         <span class="team-name">10. Surtainly Autistic (PackJhilp)</span>
                         <span class="team-record">2-5, 780 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="deepballs">
                         <span class="team-name">11. Deep Balls and Grimace (ronaldmcdonaId)</span>
                         <span class="team-record">2-5, 736 pts</span>
                     </div>
-                    <div class="team-row">
+                    <div class="team-row" data-team="theyhit">
                         <span class="team-name">12. They Hit The 2nd Bower (LewDogz)</span>
                         <span class="team-record">1-6, 777 pts</span>
                     </div>
@@ -517,7 +581,7 @@
             </div>
         </div>
 
-        <div class="section toast">
+        <div class="section toast" data-team="mahomie">
             <h3>🏆 TOAST OF THE WEEK: DazzaD1 & MaHomie N Herbie 🏆</h3>
             <p>Let's pour one out for DazzaD1, who dropped the HIGHEST SCORE OF THE WEEK with 162.9 points. This is what perfection looks like, folks. Patrick Mahomes (29.1) and Justin Herbert (32.1) combining for 61.2 points at the QB positions. Trey McBride going for 24.4 at TE. A.J. Brown reminding everyone he's still elite with 26.1 points. The Chicago Bears defense adding 14.0 points like they remembered how to play football.</p>
             <p>This wasn't just a win - this was a STATEMENT. At 4-3, DazzaD1 is right in the thick of the playoff race, and if they keep putting up performances like this, they're not just making the playoffs - they're winning the whole damn thing. The two-QB strategy is either brilliant or insane, and this week it looked like GENIUS.</p>
@@ -525,7 +589,7 @@
             <p>Raise your glass to the team that reminded us all what dominance looks like. You beautiful bastard, you've earned it.</p>
         </div>
 
-        <div class="section roast">
+        <div class="section roast" data-team="theyhit">
             <h3>🔥 ROAST OF THE WEEK: LewDogz 🔥</h3>
             <p>Oh, LewDogz. Sweet, innocent, perpetually disappointing LewDogz. 1-6. ONE AND SIX. You know what's crazy? You're not even the WORST team in points scored (777 puts you tied for 8th), but somehow you've managed to lose SIX STRAIGHT GAMES after winning Week 1. That's not bad luck - that's a CURSE.</p>
             <p>Let's talk about your Week 7 performance: 99.3 points. Matthew Stafford dropped 29.2 points - that's GREAT production! Jayden Daniels was literally listed as OUT and still managed to contribute 18.3 points from your bench. How does that even happen? Did he sneak onto the field in disguise? Michael Pittman Jr. had 17.3 points. These are GOOD performances! And you STILL lost by almost 30 points.</p>
@@ -634,5 +698,68 @@
             That's your Week 7 Gridiron Gazette! See you next week for more chaos, heartbreak, and questionable roster decisions. GO SPORTS! 🏈🍺
         </div>
     </div>
+
+    <script>
+        document.getElementById('teamSelect').addEventListener('change', function() {
+            const selectedTeam = this.value;
+            
+            // Get all filterable elements
+            const matchups = document.querySelectorAll('.matchup');
+            const teamRows = document.querySelectorAll('.team-row');
+            const toastSection = document.querySelector('.toast');
+            const roastSection = document.querySelector('.roast');
+            
+            if (selectedTeam === 'all') {
+                // Show everything
+                matchups.forEach(m => m.classList.remove('filtered-out', 'highlight-team'));
+                teamRows.forEach(t => t.classList.remove('filtered-out', 'highlight-team'));
+                if (toastSection) toastSection.classList.remove('filtered-out');
+                if (roastSection) roastSection.classList.remove('filtered-out');
+            } else {
+                // Filter matchups
+                matchups.forEach(matchup => {
+                    const teams = matchup.getAttribute('data-teams');
+                    if (teams && teams.includes(selectedTeam)) {
+                        matchup.classList.remove('filtered-out');
+                        matchup.classList.add('highlight-team');
+                    } else {
+                        matchup.classList.add('filtered-out');
+                        matchup.classList.remove('highlight-team');
+                    }
+                });
+                
+                // Filter team rows in standings
+                teamRows.forEach(row => {
+                    const team = row.getAttribute('data-team');
+                    if (team === selectedTeam) {
+                        row.classList.remove('filtered-out');
+                        row.classList.add('highlight-team');
+                    } else {
+                        row.classList.add('filtered-out');
+                        row.classList.remove('highlight-team');
+                    }
+                });
+                
+                // Filter toast/roast sections
+                if (toastSection) {
+                    const toastTeam = toastSection.getAttribute('data-team');
+                    if (toastTeam === selectedTeam) {
+                        toastSection.classList.remove('filtered-out');
+                    } else {
+                        toastSection.classList.add('filtered-out');
+                    }
+                }
+                
+                if (roastSection) {
+                    const roastTeam = roastSection.getAttribute('data-team');
+                    if (roastTeam === selectedTeam) {
+                        roastSection.classList.remove('filtered-out');
+                    } else {
+                        roastSection.classList.add('filtered-out');
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
