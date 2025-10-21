@@ -247,6 +247,12 @@
             border-radius: 6px;
             margin: 18px 0;
             border-left: 4px solid #9c27b0;
+            transition: all 0.3s ease;
+        }
+
+        .forecast:hover {
+            background: #f8e5ff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .forecast h4 {
@@ -473,7 +479,7 @@
 
             <div class="matchup" data-teams="malspals deepballs">
                 <h4>Matchup 1: Mals Pals (145.3) DEMOLISHES Deep Balls and Grimace (96.1)</h4>
-                <p>Mahl came out here looking like he remembered this was a buy-in league. 145.3 points is the kind of score that makes grown men weep and children ask uncomfortable questions. Baker Mayfield at FLEX putting up 12.4? That's not a strategy, that's performance art. And it WORKED. Meanwhile, Lamar Jackson was out, leaving ronaldmcdonaId scrambling with Spencer Rattler (11.85) filling in at QB. When your starting QB is literally not available and you're rolling with a backup, you're basically bringing a knife to a gunfight.</p>
+                <p>Mahl came out here looking like he finally figured out how to set a lineup. 145.3 points is the kind of score that makes grown men weep and children ask uncomfortable questions. Baker Mayfield at FLEX putting up 12.4? That's not a strategy, that's performance art. And it WORKED. Meanwhile, Lamar Jackson was out, leaving ronaldmcdonaId scrambling with Spencer Rattler (11.85) filling in at QB. When your starting QB is literally not available and you're rolling with a backup, you're basically bringing a knife to a gunfight.</p>
                 <p>The real story? Dak Prescott going for 24.9, CeeDee Lamb dropping 19.5, and Keenan Allen absolutely FEASTING for 23.4 points. This wasn't just a complete roster showing up - this was a symphony of fantasy perfection. Even Chris Boswell the KICKER chipped in 8.0 like he's out here trying to win MVP. The Patriots defense added 19.0 points because apparently even New England's defense can score against someone.</p>
                 <p>Josh Jacobs tried his best with 18.3 points for the losing side, and Ladd McConkey added 11.2 with Jordan Mason contributing 11.7. But when you're down your starting QB and Sterling Shepard only manages 3.0 points, you're cooked. The final margin? A soul-crushing 49.2 points. That's the kind of loss that makes you question your fantasy football abilities, your life choices, and whether you should've just taken up knitting instead.</p>
             </div>
@@ -655,28 +661,28 @@
             
             <p>Looking ahead to Week 8, and let me tell you - things are about to get SPICY. The playoff picture is crystallizing with three teams at 6-1, but in fantasy football, everything can change in ONE WEEK. One injury, one monster performance, one defense going negative (LOOKING AT YOU, WASHINGTON), and suddenly you're on the outside looking in.</p>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="deepballs theyhit">
                 <h4>Key Matchups to Watch:</h4>
                 <p><strong>Matchup 1: Deep Balls and Grimace vs They Hit The 2nd Bower</strong> - Battle of the basement dwellers. Both teams are in toilet bowl territory, and this is basically playing for "who's less terrible." ronaldmcdonaId needs Lamar Jackson back desperately, while LewDogz needs... well, everything.</p>
             </div>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="surtainly kempsey">
                 <p><strong>Matchup 2: Surtainly Autistic vs Kempsey Cum and fuck mes</strong> - PackJhilp gets the pleasure of facing the league's top team. This could get UGLY. Pelicanpete is averaging 163.9 points per game and shows no signs of slowing down.</p>
             </div>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="pushtush tim7w">
                 <p><strong>Matchup 3: Push Tush for Reggie Bush vs tim7w</strong> - Can tim7w bounce back from their first loss? GrifReaper just dropped 151.55 points and looks dangerous. This is a must-win for tim7w to maintain pace.</p>
             </div>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="postchubb mahomie">
                 <p><strong>Matchup 4: Post Chubb Depression vs MaHomie N Herbie</strong> - Both teams sitting at 4-3, both fighting for playoff positioning. Snackadaktal has Bo Nix who just went nuclear, but DazzaD1 has the two-QB cheat code. This one could determine playoff seeding.</p>
             </div>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="rashees jackingoff">
                 <p><strong>Matchup 5: Rashee's Ricests vs JackinGoff</strong> - Can ChubbyChaser20 play spoiler to one of the 6-1 teams? They need Geno Smith to remember he's an NFL quarterback and not a statue.</p>
             </div>
 
-            <div class="forecast">
+            <div class="forecast" data-teams="malspals kmet">
                 <p><strong>Matchup 6: Mals Pals vs Kmet the frog</strong> - Mahl looking to keep the momentum going against williamdundas27. Both teams need wins to stay in the playoff hunt.</p>
             </div>
 
@@ -708,11 +714,13 @@
             const teamRows = document.querySelectorAll('.team-row');
             const toastSection = document.querySelector('.toast');
             const roastSection = document.querySelector('.roast');
+            const forecasts = document.querySelectorAll('.forecast');
             
             if (selectedTeam === 'all') {
                 // Show everything
                 matchups.forEach(m => m.classList.remove('filtered-out', 'highlight-team'));
                 teamRows.forEach(t => t.classList.remove('filtered-out', 'highlight-team'));
+                forecasts.forEach(f => f.classList.remove('filtered-out', 'highlight-team'));
                 if (toastSection) toastSection.classList.remove('filtered-out');
                 if (roastSection) roastSection.classList.remove('filtered-out');
             } else {
@@ -737,6 +745,18 @@
                     } else {
                         row.classList.add('filtered-out');
                         row.classList.remove('highlight-team');
+                    }
+                });
+                
+                // Filter forecast matchups
+                forecasts.forEach(forecast => {
+                    const teams = forecast.getAttribute('data-teams');
+                    if (teams && teams.includes(selectedTeam)) {
+                        forecast.classList.remove('filtered-out');
+                        forecast.classList.add('highlight-team');
+                    } else {
+                        forecast.classList.add('filtered-out');
+                        forecast.classList.remove('highlight-team');
                     }
                 });
                 
