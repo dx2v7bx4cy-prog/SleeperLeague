@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gridiron Gazette - Week 11</title>
+    <title>The Gridiron Gazette - Week 13</title>
     <style>
         * {
             margin: 0;
@@ -160,9 +160,21 @@
 
         .team-row:hover {
             background: #e8f5e9;
-            transform: translateX(5px);
             border-left-color: #27ae60;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .team-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .team-rank {
+            font-weight: 700;
+            color: #27ae60;
+            font-size: 1.2em;
+            min-width: 30px;
         }
 
         .team-name {
@@ -171,567 +183,432 @@
             font-size: 1.05em;
         }
 
-        .team-record {
+        .team-owner {
             color: #7f8c8d;
-            font-size: 0.95em;
-            font-weight: 500;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .team-record {
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1.05em;
         }
 
         .toast {
             background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
-            color: #2c3e50;
-            padding: 35px 40px;
+            padding: 40px;
             margin: 0;
             border-bottom: 4px solid #f39c12;
         }
 
         .toast h3 {
-            font-size: 2em;
+            color: #fff;
+            font-size: 1.8em;
             margin-bottom: 20px;
+            text-transform: uppercase;
             font-weight: 700;
-            color: #2c3e50;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .toast p {
+            color: #fff;
             font-size: 1.05em;
-            line-height: 1.8;
+            line-height: 1.9;
             margin-bottom: 15px;
-            color: #2c3e50;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .roast {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: #fff;
-            padding: 35px 40px;
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            padding: 40px;
             margin: 0;
-            border-bottom: 4px solid #c0392b;
+            border-bottom: 4px solid #8e44ad;
         }
 
         .roast h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
             color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
             font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .roast p {
+            color: #fff;
             font-size: 1.05em;
-            line-height: 1.8;
+            line-height: 1.9;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .nerd-nugget {
             background: #f8f9fa;
-            padding: 18px 20px;
+            padding: 18px;
             margin: 15px 0;
             border-radius: 6px;
-            border-left: 4px solid #2196f3;
+            border-left: 4px solid #3498db;
+            font-size: 1.02em;
+            line-height: 1.7;
+            color: #34495e;
         }
 
         .nerd-nugget strong {
-            color: #1565c0;
-            font-weight: 600;
+            color: #2c3e50;
+            font-weight: 700;
         }
 
         .forecast {
-            background: #f3e5f5;
-            padding: 22px 25px;
-            border-radius: 6px;
-            margin: 18px 0;
-            border-left: 4px solid #9c27b0;
-            transition: all 0.3s ease;
-        }
-
-        .forecast:hover {
-            background: #f8e5ff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: #ecf0f1;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
         }
 
         .forecast h4 {
-            color: #7b1fa2;
-            margin-bottom: 12px;
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 18px;
             font-weight: 600;
-            font-size: 1.15em;
         }
 
         .forecast p {
+            margin-bottom: 15px;
+            font-size: 1.02em;
             color: #34495e;
             line-height: 1.8;
         }
 
         .footer {
-            text-align: center;
-            padding: 40px;
-            background: #ecf0f1;
-            border-top: 4px solid #27ae60;
-            font-size: 1.3em;
-            color: #27ae60;
-            font-weight: 600;
-        }
-
-        .team-filter {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .team-filter label {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: #ecf0f1;
+            text-align: center;
+            padding: 30px;
             font-size: 1.1em;
-            margin-right: 15px;
-            font-weight: 600;
-        }
-
-        .team-filter select {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: 2px solid #27ae60;
-            border-radius: 6px;
-            background: #fff;
-            color: #2c3e50;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .team-filter select:hover {
-            background: #27ae60;
-            color: #fff;
-        }
-
-        .team-filter select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3);
-        }
-
-        .filtered-out {
-            display: none !important;
-        }
-
-        .highlight-team {
-            background: #fff9e6 !important;
-            border-left-color: #f39c12 !important;
-            border-left-width: 6px !important;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 15px;
-            }
-
-            .container {
-                padding: 0;
-            }
-
-            .header {
-                padding: 35px 20px;
-            }
-
-            .header h1 {
-                font-size: 2em;
-                letter-spacing: 3px;
-            }
-
-            .header .emoji {
-                font-size: 1.8em;
-            }
-
-            .subheader {
-                font-size: 1.1em;
-            }
-
-            .breaking-news {
-                padding: 25px 20px;
-            }
-
-            .breaking-news h3 {
-                font-size: 1.2em;
-            }
-
-            .section {
-                padding: 25px 20px;
-            }
-
-            .section-title {
-                font-size: 1.6em;
-                letter-spacing: 1px;
-            }
-
-            .matchup {
-                padding: 18px;
-                margin: 18px 0;
-            }
-
-            .matchup h4 {
-                font-size: 1.15em;
-            }
-
-            .matchup p {
-                font-size: 1em;
-            }
-
-            .team-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-                padding: 12px 15px;
-            }
-
-            .team-name {
-                font-size: 1em;
-            }
-
-            .team-record {
-                font-size: 0.9em;
-            }
-
-            .toast, .roast {
-                padding: 25px 20px;
-            }
-
-            .toast h3, .roast h3 {
-                font-size: 1.5em;
-            }
-
-            .nerd-nugget, .forecast {
-                padding: 15px 18px;
-                margin: 12px 0;
-            }
-
-            .forecast h4 {
-                font-size: 1.1em;
-            }
-
-            .footer {
-                padding: 30px 20px;
-                font-size: 1.1em;
-            }
-
-            .standings-group h4 {
-                font-size: 1.15em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.6em;
-                letter-spacing: 2px;
-            }
-
-            .subheader {
-                font-size: 1em;
-            }
-
-            .section-title {
-                font-size: 1.4em;
-            }
-
-            .matchup h4 {
-                font-size: 1.05em;
-                line-height: 1.4;
-            }
+            border-top: 4px solid #27ae60;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="emoji">🏈</div>
-            <h1>The Gridiron Gazette</h1>
-            <div class="emoji">🏈</div>
-            <div class="subheader">Week 11 Edition: The Mediocrity Bowl & Playoff Positioning</div>
-            
-            <div class="team-filter">
-                <label for="teamSelect">Filter by Team:</label>
-                <select id="teamSelect">
-                    <option value="all">Show All Teams</option>
-                    <option value="postchubb">Post Chubb Depression</option>
-                    <option value="malspals">Mals Pals</option>
-                    <option value="kmet">Kmet the frog</option>
-                    <option value="pushtush">Push Tush for Reggie Bush</option>
-                    <option value="surtainly">Surtainly Autistic</option>
-                    <option value="kempsey">Kempsey Cum and fuck mes</option>
-                    <option value="tim7w">tim7w</option>
-                    <option value="mahomie">MaHomie N Herbie</option>
-                    <option value="deepballs">Deep Balls and Grimace</option>
-                    <option value="theyhit">They Hit The 2nd Bower</option>
-                    <option value="rashees">Rashee's Ricests</option>
-                    <option value="jackingoff">JackinGoff</option>
-                </select>
-            </div>
+            <h1>
+                <span class="emoji">🏈</span>
+                THE GRIDIRON GAZETTE
+                <span class="emoji">🏈</span>
+            </h1>
+            <p class="subheader">Week 13 Recap - Jacob Dominates, Dundas Heartbreak</p>
         </div>
 
         <div class="breaking-news">
-            <h3>🚨 TIM7W DROPS 143.8! PETE HITS 134.8! JACOB MOVES TO 10-1! 🚨</h3>
-            <p>Week 11 brought some SERIOUS firepower from the top teams! tim7w explodes for 143.8 points to move to 8-3 and solidify playoff position. Pelicanpete drops 134.8 points to improve to 10-1 and extend his dominance. JackinGoff posts 127.05 points to move to an INSANE 10-1 record. GrifReaper continues his hot streak with 115.05 points to reach 7-4. Meanwhile, ChubbyChaser20 got absolutely DESTROYED, scoring just 79.3 points in a 55.5-point blowout loss. DazzaD1 survives with 110.35 to move to 6-5. With three weeks left, the top of the standings is LOCKED, but the middle is an absolute BLOODBATH as teams fight for the final playoff spots.</p>
+            <h3>🚨 BREAKING: JACOB DOMINATES, BUT PETE STILL REIGNS 🚨</h3>
+            <p>Ladies and gentlemen, we just witnessed PEAK DOMINATION in Week 13. Jacob0973's JackinGoff just dropped 151.85 points - ONE HUNDRED FIFTY ONE POINT EIGHT FIVE - and DEMOLISHED They Hit The 2nd Bower by 65.55 points. This man is now 12-1 with 1,707 total points and is the #1 seed heading into the playoffs.</p>
+            <p>But let's be CLEAR about who the championship favorite is. Pelicanpete's Kempsey Cum and fuck mes took their SECOND loss of the season, falling to DazzaD1's MaHomie N Herbie 126.9 to 105.05. Pete drops to 11-2, but STILL has the most total points in the league with an ABSURD 2,019. That's 312 points MORE than Jacob. Pete is STILL the overwhelming favorite to win it all - that point total doesn't lie.</p>
+            <p>And now for the HEARTBREAK. williamdundas27's Kmet the frog has been MATHEMATICALLY ELIMINATED from playoff contention at 4-9 with 1,471 points. Here's where it gets PAINFUL - this man has lost FOUR games this season by approximately ONE POINT. FOUR. GAMES. One more yard here. One more catch there. That's the difference between 8-5 and fighting for playoffs versus 4-9 and going home early. This might be the most TRAGIC elimination in fantasy football history.</p>
+            <p>With ONE week left before playoffs, ONE playoff spot (#6) remains up for grabs between Post Chubb Depression (6-7) and Surtainly Autistic (5-8). Everything comes down to Week 14.</p>
         </div>
 
         <div class="section">
-            <h2 class="section-title">🔥 SCOREBOARD & SHENANIGANS 🔥</h2>
+            <h2 class="section-title">📊 WEEK 13 MATCHUP RECAPS 📊</h2>
 
-            <div class="matchup" data-teams="mahomie deepballs">
-                <h4>Matchup 1: MaHomie N Herbie (110.35) def. Deep Balls and Grimace (87.75)</h4>
-                <p>DazzaD1 survives Week 11 with 110.35 points — and in a week where nobody could score, that was MORE than enough. Justin Herbert doing his thing at QB. Kenneth Walker and Chase Brown combining for solid RB production. Trey McBride being a reliable TE option. Patrick Mahomes available as QB depth. This wasn't pretty, but it was effective, and that's all that matters.</p>
-                <p>At 6-5 with three games left, they're RIGHT on the playoff bubble. This win was absolutely critical. One more loss and things get DICEY. The margin for error is razor-thin, but this team is still controlling their own destiny. Win games, make playoffs. It's that simple.</p>
-                <p>ronaldmcdonaId drops to 3-8 after scoring 87.75 points — which honestly isn't even that bad considering the week everyone else had. Lamar Jackson at QB, Josh Jacobs at RB, Ladd McConkey at WR, and Jordan Love as QB depth all put up respectable numbers. But when you're 3-8, respectable doesn't cut it anymore. The season is over, and these final three weeks are just about not finishing in dead last.</p>
+            <div class="matchup">
+                <h4>tim7w (118.5) defeats Deep Balls and Grimace (103.6) by 14.9</h4>
+                <p>tim7w continues cruising with another solid victory, moving to 10-3 with 1,694 total points. This team is LOCKED into the playoffs and looking dangerous.</p>
+                <p>Jalen Hurts and Christian McCaffrey proving once again why they're ELITE fantasy assets. Travis Kelce providing steady production at TE. Jared Goff as QB2 giving this roster UNREAL depth. When your roster is THIS balanced, you're a legitimate championship threat.</p>
+                <p>Deep Balls and Grimace falls to 3-10 with 1,335 points. Lamar Jackson, Josh Jacobs, and Ladd McConkey all had decent games, but it wasn't enough. At 3-10, this team is mathematically eliminated but still capable of playing SPOILER over the final two weeks.</p>
             </div>
 
-            <div class="matchup" data-teams="pushtush surtainly">
-                <h4>Matchup 2: Push Tush for Reggie Bush (115.05) def. Surtainly Autistic (99.85)</h4>
-                <p>GrifReaper continues the hot streak with 115.05 points to move to 7-4! Trevor Lawrence at QB. The Detroit stack of Jahmyr Gibbs and Amon-Ra St. Brown doing what they do best. Pittsburgh D coming through. This roster is absolutely CLICKING at the perfect time, and at 7-4 with three games left, they're basically LOCKED into the playoffs.</p>
-                <p>This team has figured out the formula. Lean on the Detroit offense. Trust Trevor Lawrence. Let the defense contribute. It's working week after week, and this is exactly the kind of consistency you want heading into the postseason. This is a DANGEROUS team that nobody wants to face in the playoffs.</p>
-                <p>PackJhilp drops to 3-8 after scoring 99.85 points. Derrick Henry still being Derrick Henry at RB. DeVonta Smith and Jameson Williams at WR putting up decent numbers. Caleb Williams and J.J. McCarthy providing QB depth. The talent is there, but at 3-8, the season is over. These final three weeks are about playing spoiler and finishing with some dignity.</p>
+            <div class="matchup">
+                <h4>Surtainly Autistic (127.45) defeats Rashee's Ricests (92.1) by 35.35</h4>
+                <p>PackJhilp's Surtainly Autistic puts up the SECOND highest score of Week 13 with 127.45 points, absolutely DEMOLISHING Rashee's Ricests. Derrick Henry running through defenses like they're made of paper. DeVonta Smith, Jameson Williams, and Javonte Williams all contributing. This was a COMPLETE team performance.</p>
+                <p>Surtainly Autistic moves to 5-8 with 1,516 points. Eliminated from playoff contention but showing the kind of firepower that makes them DANGEROUS spoilers for the final two weeks.</p>
+                <p>Rashee's Ricests drops to 4-9 with 1,349 points. Joe Burrow, Travis Etienne, and Bucky Irving tried, but DK Metcalf and Keenan Allen completely DISAPPEARED. At 4-9, the season is essentially over, but pride is still on the line.</p>
             </div>
 
-            <div class="matchup" data-teams="theyhit kmet">
-                <h4>Matchup 3: They Hit The 2nd Bower (104.2) def. Kmet the frog (95.6)</h4>
-                <p>LewDogz puts together a solid 104.2-point performance to move to 4-7! Matthew Stafford at QB doing what he does. Kyren Williams and Aaron Jones providing that RB stability. Brock Bowers showing why he's one of the best rookie TEs in the league. Rachaad White and Mark Andrews filling in nicely. This is what happens when a roster finally clicks for a week.</p>
-                <p>At 4-7, they're eliminated from playoff contention, but this win shows there's still fight in this team. These final three weeks are about pride and playing spoiler to other teams' playoff dreams. And with performances like this, they're absolutely capable of ruining someone's season.</p>
-                <p>williamdundas27 falls to 3-8 after scoring 95.6 points. Joe Flacco at QB, James Cook and Ashton Jeanty at RB, Ja'Marr Chase at WR, Tua Tagovailoa as QB depth — the pieces are there, but it wasn't enough. George Pickens and Romeo Doubs couldn't get it done at WR. At 3-8, the season is effectively over, but losing by just 8.6 points has to sting. That's the kind of loss that makes you wonder "what if."</p>
+            <div class="matchup">
+                <h4>Post Chubb Depression (111.05) defeats Kmet the frog (93.05) by 18.0</h4>
+                <p>Snackadaktal's Post Chubb Depression moves to 6-7 with a crucial 111.05-point victory, keeping their playoff hopes on life support with 1,510 total points. The team scraped together just enough to get the win, but this wasn't a dominant performance. At 6-7, they need EVERYTHING to go right over the final two weeks to have any shot at the playoffs.</p>
+                <p>But this game is about the TRAGEDY on the other side. williamdundas27's Kmet the frog drops to 4-9 with 1,471 points and is now OFFICIALLY ELIMINATED from playoff contention.</p>
+                <p>Let's talk about the HEARTBREAK. FOUR losses by approximately ONE POINT this season. FOUR. This isn't just bad luck - this is the fantasy football gods deciding they absolutely HATE you. C.J. Stroud, James Cook, Ja'Marr Chase - this roster has legitimate TALENT. But when you lose four games by a single point, talent doesn't matter. You're CURSED.</p>
+                <p>One more yard here. One more catch there. One more field goal. That's the difference between 8-5 and fighting for playoffs versus 4-9 and eliminated. This should've been a playoff team. Instead, it's going home early with nothing but pain, regret, and the cruel knowledge of what could have been. This is the most PAINFUL elimination in league history.</p>
             </div>
 
-            <div class="matchup" data-teams="tim7w malspals">
-                <h4>Matchup 4: tim7w (143.8) def. Mals Pals (117.95)</h4>
-                <p>tim7w EXPLODES for 143.8 points to move to 8-3! Jalen Hurts at QB doing Jalen Hurts things. Christian McCaffrey showing he's still ELITE when healthy. Drake London and Deebo Samuel contributing at WR. Travis Kelce being reliable at TE. Jared Goff providing solid QB depth. This is what a complete, championship-caliber roster looks like when it's firing on all cylinders.</p>
-                <p>At 8-3 with three games left, they're LOCKED into the playoffs. This team is peaking at exactly the right time, and they're looking like a legitimate championship contender. The depth, the consistency, the star power — it's all there. This is a team that can go all the way.</p>
-                <p>Mahl drops to 3-8 after scoring 117.95 points — which honestly would've been competitive in most weeks, but not when you're facing a team that drops 143.8. Baker Mayfield at QB, Jaylen Warren and Kimani Vidal at RB, CeeDee Lamb at WR, Kyle Pitts at TE — the roster put up a respectable score. But when your opponent is in THAT zone, there's nothing you can do. At 3-8, the season is over, but at least this wasn't an embarrassing loss.</p>
+            <div class="matchup">
+                <h4>JackinGoff (151.85) ANNIHILATES They Hit The 2nd Bower (86.3) by 65.55</h4>
+                <p>ONE HUNDRED FIFTY ONE POINT EIGHT FIVE. Let that NUMBER sink in for a moment. Jacob0973 just put on the most DOMINANT performance of the entire season, absolutely DESTROYING LewDogz by 65.55 points in what can only be described as COMPLETE AND UTTER ANNIHILATION.</p>
+                <p>Drake Maye showing OUT at QB. Bijan Robinson and Breece Hall being ELITE at RB. Puka Nacua going OFF at WR. George Kittle being George Kittle. This wasn't just a win - this was a STATEMENT. This was Jacob saying "I'm 12-1 with 1,707 points and I'm the #1 seed heading into playoffs."</p>
+                <p>At 12-1, JackinGoff has the BEST record in the league and the #1 seed locked up. This is an ELITE team playing championship-caliber football at exactly the right time. When you can drop 151.85 points in Week 13, you're a legitimate championship contender. But let's be real - Pete's 2,019 total points (312 MORE than Jacob) makes Kempsey the favorite to win it all.</p>
+                <p>They Hit The 2nd Bower falls to 4-9 with 1,453 points. Kyren Williams tried his best, but when you're facing a team dropping 151.85, there's literally NOTHING you can do. This was a MASSACRE of epic proportions. The kind of beatdown that makes you question your entire roster construction.</p>
             </div>
 
-            <div class="matchup" data-teams="jackingoff postchubb">
-                <h4>Matchup 5: JackinGoff (127.05) def. Post Chubb Depression (116.25)</h4>
-                <p>JackinGoff moves to an ABSURD 10-1 record with a 127.05-point performance! Drake Maye at QB continues to impress. Bijan Robinson and Breece Hall forming an ELITE RB duo. Puka Nacua showing up at WR. George Kittle being reliable at TE. This team just finds ways to WIN, week after week after week.</p>
-                <p>10-1. TEN AND ONE. This team is tied with Pete for the best record in the league, and they're doing it in a completely different way. Where Pete dominates with sheer firepower, Jacob wins with consistency and clutch performances. At 10-1, they're LOCKED into the playoffs and looking like a legitimate championship threat.</p>
-                <p>Snackadaktal falls to 5-6 after scoring 116.25 points — which is a QUALITY LOSS if there ever was one. Bo Nix at QB, Saquon Barkley at RB, Justin Jefferson and Nico Collins at WR, Tee Higgins in the flex — this roster put up serious points. But when you're facing a buzzsaw, sometimes good isn't good enough.</p>
-                <p>At 5-6 with three games left, they're RIGHT on the playoff bubble. This loss HURTS. Every game from here is a must-win. The margin for error is GONE, and the playoff dreams are hanging by a thread.</p>
+            <div class="matchup">
+                <h4>Mals Pals (144) defeats Push Tush for Reggie Bush (105.6) by 38.4</h4>
+                <p>Mahl's Mals Pals drops a MONSTER 144 points - the THIRD highest score of the week - absolutely CRUSHING GrifReaper's Push Tush. Dak Prescott going nuclear. CeeDee Lamb being absolutely ELITE. Baker Mayfield providing ridiculous QB depth. This is a 4-9 team playing like championship contenders.</p>
+                <p>Mals Pals moves to 4-9 with 1,550 points. Mathematically eliminated from playoffs but playing SPOILER to absolute perfection. When a team can drop 144 points in Week 13, they're DANGEROUS no matter what their record says.</p>
+                <p>Push Tush drops to 8-5 with 1,628 points, and this loss HURTS. The Detroit stack of Jahmyr Gibbs and Amon-Ra St. Brown (who was OUT this week) couldn't save them. Trevor Lawrence struggled. At 8-5, they're still in solid playoff position, but losing by 38.4 to a 4-9 team is the kind of performance that should absolutely TERRIFY you heading into the postseason. When your roster can randomly implode like this, what's stopping it from happening in the playoffs?</p>
             </div>
 
-            <div class="matchup" data-teams="kempsey rashees">
-                <h4>Matchup 6: Kempsey Cum and fuck mes (134.8) def. Rashee's Ricests (79.3)</h4>
-                <p>PELICANPETE STRIKES AGAIN with 134.8 points to move to 10-1! Josh Allen being Josh Allen at QB. De'Von Achane exploding for huge RB numbers. Davante Adams and Jaxon Smith-Njigba producing at WR. Courtland Sutton in the flex. Sam Darnold providing QB depth. This is what DOMINANCE looks like.</p>
-                <p>At 10-1 with 1,775 total points, Pete isn't just winning — he's OBLITERATING the competition. This team has been elite ALL SEASON LONG, and there's no signs of slowing down. Josh Allen is having an MVP-caliber fantasy season, and the supporting cast just keeps delivering. This is the championship favorite, period.</p>
-                <p>ChubbyChaser20 drops to 4-7 after scoring just 79.3 points in a BRUTAL 55.5-point blowout. Geno Smith at QB couldn't get it going. Travis Etienne and Emari Demercado at RB were invisible. DK Metcalf and Rashid Shaheed at WR couldn't produce. Hunter Henry at TE? Nothing. This was a complete roster failure from top to bottom.</p>
-                <p>To lose by 55.5 points is just DEVASTATING. To score under 80 points in Week 11 is unacceptable. At 4-7, the season is effectively over, but this is the kind of loss that stings. This is the kind of performance you want to forget immediately.</p>
+            <div class="matchup">
+                <h4>MaHomie N Herbie (126.9) defeats Kempsey Cum and fuck mes (105.05) by 21.85</h4>
+                <p>DazzaD1 just handed Pelicanpete his SECOND loss of the season with a solid 126.9-point performance. Patrick Mahomes showing he's still THAT GUY. A.J. Brown absolutely DESTROYING defenders. Trey McBride being a top-tier TE1. Kenneth Walker and Chase Brown providing solid RB production. This was a COMPLETE team effort that nobody saw coming.</p>
+                <p>MaHomie N Herbie moves to 7-6 with 1,653 points, and this win LOCKS them into the #5 playoff seed. DazzaD1 is heading to the playoffs.</p>
+                <p>Pete drops to 11-2 but still maintains the league lead with an ABSURD 2,019 total points - that's 312 points MORE than anyone else in the league. Josh Allen, Jonathan Taylor, and De'Von Achane all showed up and put up respectable numbers, but it wasn't enough to overcome the MaHomie onslaught.</p>
+                <p>Here's what matters though - Pete is STILL the overwhelming championship favorite. That 2,019 point total is the highest in the league by a MILE. The #2 seed is locked up. This is just the second loss all season - a minor bump in the road. When you have 312 more total points than the #1 seed, you're the team to beat in the playoffs. Jacob might have the better record and the #1 seed, but Pete's point total screams CHAMPION.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">📊 STANDINGS SNAPSHOT 📊</h2>
+            <h2 class="section-title">🏆 CURRENT STANDINGS 🏆</h2>
             
             <div class="standings-table">
                 <div class="standings-group">
-                    <h4>THE ELITE (Playoff Locks)</h4>
-                    <div class="team-row" data-team="kempsey">
-                        <span class="team-name">1. Kempsey Cum and fuck mes (Pelicanpete)</span>
-                        <span class="team-record">10-1, 1775 pts</span>
+                    <h4>🔒 PLAYOFF LOCKS (TOP SEEDS)</h4>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">1.</span>
+                            <div>
+                                <div class="team-name">JackinGoff</div>
+                                <div class="team-owner">Jacob0973</div>
+                            </div>
+                        </div>
+                        <span class="team-record">12-1, 1707 pts</span>
                     </div>
-                    <div class="team-row" data-team="jackingoff">
-                        <span class="team-name">2. JackinGoff (Jacob0973)</span>
-                        <span class="team-record">10-1, 1438 pts</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">2.</span>
+                            <div>
+                                <div class="team-name">Kempsey Cum and fuck mes</div>
+                                <div class="team-owner">Pelicanpete</div>
+                            </div>
+                        </div>
+                        <span class="team-record">11-2, 2019 pts</span>
                     </div>
-                    <div class="team-row" data-team="tim7w">
-                        <span class="team-name">3. tim7w</span>
-                        <span class="team-record">8-3, 1425 pts</span>
-                    </div>
-                </div>
-
-                <div class="standings-group">
-                    <h4>THE BUBBLE (Fighting For Their Lives)</h4>
-                    <div class="team-row" data-team="pushtush">
-                        <span class="team-name">4. Push Tush for Reggie Bush (GrifReaper)</span>
-                        <span class="team-record">7-4, 1375 pts</span>
-                    </div>
-                    <div class="team-row" data-team="mahomie">
-                        <span class="team-name">5. MaHomie N Herbie (DazzaD1)</span>
-                        <span class="team-record">6-5, 1384 pts</span>
-                    </div>
-                    <div class="team-row" data-team="postchubb">
-                        <span class="team-name">6. Post Chubb Depression (Snackadaktal)</span>
-                        <span class="team-record">5-6, 1339 pts</span>
-                    </div>
-                </div>
-
-                <div class="standings-group">
-                    <h4>THE BUBBLE (Long Shots)</h4>
-                    <div class="team-row" data-team="rashees">
-                        <span class="team-name">7. Rashee's Ricests (ChubbyChaser20)</span>
-                        <span class="team-record">4-7, 1159 pts</span>
-                    </div>
-                    <div class="team-row" data-team="theyhit">
-                        <span class="team-name">8. They Hit The 2nd Bower (LewDogz)</span>
-                        <span class="team-record">4-7, 1231 pts</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">3.</span>
+                            <div>
+                                <div class="team-name">tim7w</div>
+                                <div class="team-owner">tim7w</div>
+                            </div>
+                        </div>
+                        <span class="team-record">10-3, 1694 pts</span>
                     </div>
                 </div>
 
                 <div class="standings-group">
-                    <h4>THE ELIMINATED (Playing For Pride)</h4>
-                    <div class="team-row" data-team="deepballs">
-                        <span class="team-name">9. Deep Balls and Grimace (ronaldmcdonaId)</span>
-                        <span class="team-record">3-8, 1148 pts</span>
+                    <h4>✅ LIKELY IN</h4>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">4.</span>
+                            <div>
+                                <div class="team-name">Push Tush for Reggie Bush</div>
+                                <div class="team-owner">GrifReaper</div>
+                            </div>
+                        </div>
+                        <span class="team-record">8-5, 1628 pts</span>
                     </div>
-                    <div class="team-row" data-team="malspals">
-                        <span class="team-name">10. Mals Pals (Mahl)</span>
-                        <span class="team-record">3-8, 1303 pts</span>
+                </div>
+
+                <div class="standings-group">
+                    <h4>⚠️ FIGHTING FOR THE LAST TWO SPOTS</h4>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">5.</span>
+                            <div>
+                                <div class="team-name">MaHomie N Herbie</div>
+                                <div class="team-owner">DazzaD1</div>
+                            </div>
+                        </div>
+                        <span class="team-record">7-6, 1653 pts</span>
                     </div>
-                    <div class="team-row" data-team="kmet">
-                        <span class="team-name">11. Kmet the frog (williamdundas27)</span>
-                        <span class="team-record">3-8, 1253 pts</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">6.</span>
+                            <div>
+                                <div class="team-name">Post Chubb Depression</div>
+                                <div class="team-owner">Snackadaktal</div>
+                            </div>
+                        </div>
+                        <span class="team-record">6-7, 1510 pts</span>
                     </div>
-                    <div class="team-row" data-team="surtainly">
-                        <span class="team-name">12. Surtainly Autistic (PackJhilp)</span>
-                        <span class="team-record">3-8, 1267 pts</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">7.</span>
+                            <div>
+                                <div class="team-name">Surtainly Autistic</div>
+                                <div class="team-owner">PackJhilp</div>
+                            </div>
+                        </div>
+                        <span class="team-record">5-8, 1516 pts</span>
+                    </div>
+                </div>
+
+                <div class="standings-group">
+                    <h4>💀 ELIMINATED / SPOILER TERRITORY</h4>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">8.</span>
+                            <div>
+                                <div class="team-name">Mals Pals</div>
+                                <div class="team-owner">Mahl</div>
+                            </div>
+                        </div>
+                        <span class="team-record">4-9, 1550 pts</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">9.</span>
+                            <div>
+                                <div class="team-name">Kmet the frog</div>
+                                <div class="team-owner">williamdundas27</div>
+                            </div>
+                        </div>
+                        <span class="team-record">4-9, 1471 pts</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">10.</span>
+                            <div>
+                                <div class="team-name">They Hit The 2nd Bower</div>
+                                <div class="team-owner">LewDogz</div>
+                            </div>
+                        </div>
+                        <span class="team-record">4-9, 1453 pts</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">11.</span>
+                            <div>
+                                <div class="team-name">Rashee's Ricests</div>
+                                <div class="team-owner">ChubbyChaser20</div>
+                            </div>
+                        </div>
+                        <span class="team-record">4-9, 1349 pts</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <span class="team-rank">12.</span>
+                            <div>
+                                <div class="team-name">Deep Balls and Grimace</div>
+                                <div class="team-owner">ronaldmcdonaId</div>
+                            </div>
+                        </div>
+                        <span class="team-record">3-10, 1335 pts</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section toast" data-team="tim7w">
-            <h3>🏆 TOAST OF THE WEEK: tim7w 🏆</h3>
-            <p>143.8 POINTS. ONE HUNDRED FORTY THREE POINT EIGHT POINTS. This is what ELITE looks like in Week 11.</p>
-            <p>tim7w just put on an absolute CLINIC in how to dominate fantasy football. Jalen Hurts going nuclear at QB. Christian McCaffrey showing the league he's BACK and better than ever. Drake London and Deebo Samuel producing at WR. Travis Kelce being the steady veteran presence at TE. Jared Goff providing high-quality QB depth. This is a COMPLETE roster firing on all cylinders.</p>
-            <p>At 8-3 with 1,425 total points, this team is LOCKED into the playoffs and looking like a legitimate championship contender. This isn't just a good team — this is a team that's hitting its peak at EXACTLY the right time. The balance, the depth, the star power — it's all there.</p>
-            <p>143.8 points is a STATEMENT. It's the high score of Week 11, and it wasn't even close. When you can drop that kind of performance this late in the season, it sends a message to the rest of the league: this team is FOR REAL, and they're coming for that championship.</p>
-            <p>The scary part? This team still has room to improve. CMC is still getting back to full speed. The WR depth can produce even more. This isn't even their final form, and they're already putting up performances like this. That's TERRIFYING for the rest of the league.</p>
-            <p>Raise your glass to championship-caliber performances. Raise your glass to peaking at the perfect time. Raise your glass to tim7w, who just reminded everyone that when the playoffs roll around, you want to be the team that's playing its best football. And right now, this team is playing ELITE football.</p>
+        <div class="section toast">
+            <h3>🏆 TOAST OF THE WEEK: JackinGoff 🏆</h3>
+            <p>151.85 points. ONE HUNDRED FIFTY ONE POINT EIGHT FIVE POINTS. This is what ELITE looks like. This is what CHAMPIONSHIP CALIBER looks like. This is what COMPLETE DOMINATION looks like.</p>
+            <p>Jacob0973 just put on an absolute CLINIC in Week 13. Drake Maye going OFF at quarterback. Bijan Robinson and Breece Hall being ELITE at running back. Puka Nacua destroying at wide receiver. George Kittle being George Kittle. This is a COMPLETE roster firing on all cylinders at EXACTLY the right time.</p>
+            <p>At 12-1 with 1,707 total points, this team has locked up the #1 seed and is a LEGITIMATE championship contender. This isn't just a good team having a good week. This is an ELITE team showing everyone what they're capable of when everything clicks.</p>
+            <p>151.85 points is the high score of Week 13 by a MILE. It wasn't even close. When you can drop that kind of performance this late in the season, it sends a message to the rest of the league: this team is FOR REAL and dangerous in the playoffs.</p>
+            <p>The only question? Can they overcome Pete's ABSURD 2,019 total points (312 MORE than Jacob)? Kempsey is still the favorite with that kind of point differential, but Jacob just proved he can put up championship-level performances when it matters most.</p>
+            <p>Raise your glass to peak performance. Raise your glass to championship-level execution. Raise your glass to Jacob0973, who just put the entire league on notice with the highest score of the season. The #1 seed is yours. Now it's time to prove you can take down the favorite.</p>
         </div>
 
-        <div class="section roast" data-team="rashees">
-            <h3>🔥 ROAST OF THE WEEK: ChubbyChaser20 & Rashee's Ricests 🔥</h3>
-            <p>79.3 points. SEVENTY NINE POINT THREE POINTS. In Week 11. Against the league leader.</p>
-            <p>Let's break down this absolute DISASTER piece by piece, shall we? Geno Smith at QB couldn't even get to double digits. Travis Etienne and Emari Demercado at RB combined for essentially nothing. DK Metcalf and Rashid Shaheed at WR were completely invisible. Hunter Henry at TE? Might as well have stayed on the bench. Keenan Allen providing NOTHING in the flex.</p>
-            <p>This isn't just a bad week — this is a CATASTROPHIC FAILURE of epic proportions. This is the kind of performance that gets screenshotted and saved for the offseason roast sessions. This is the kind of score that becomes LEGEND for all the wrong reasons.</p>
-            <p>You lost by 55.5 points. FIFTY FIVE POINT FIVE. That's not a loss — that's a MASSACRE. That's the fantasy football equivalent of getting run over by a freight train while standing on the tracks. That's getting absolutely DEMOLISHED and having no earthly explanation for what went wrong.</p>
-            <p>And here's the KICKER — you had Aaron Rodgers as your QB2, and you STILL couldn't crack 80 points. You had two quarterbacks, and you scored 79.3. That's almost IMPRESSIVE in how spectacularly terrible it is. That takes a special kind of roster implosion.</p>
-            <p>At 4-7, the season is basically over. But this? This is something SPECIAL. This is the kind of performance that makes you question every decision you've made this season. Your draft picks. Your waiver wire moves. Your trade negotiations. Everything.</p>
-            <p>79.3 points against the league leader. That's the number that will haunt you. That's the number that will be brought up at next year's draft. That's the number that defines Week 11 for you. And brother, there is NO recovering from that kind of embarrassment.</p>
+        <div class="section roast">
+            <h3>🔥 ROAST OF THE WEEK: They Hit The 2nd Bower 🔥</h3>
+            <p>86.3 points. EIGHTY SIX POINT THREE POINTS. Against a team that dropped 151.85.</p>
+            <p>Let's talk about what happened here, shall we? LewDogz's They Hit The 2nd Bower just got ANNIHILATED by 65.55 points. SIXTY FIVE POINT FIVE FIVE. That's not a loss - that's a MASSACRE. That's the fantasy football equivalent of getting hit by a truck, backing up, and getting hit by the same truck AGAIN.</p>
+            <p>Matthew Stafford at QB contributing basically nothing. Kyren Williams tried his best at RB but got zero help from Aaron Jones. Michael Pittman and Marvin Harrison Jr. at WR were completely INVISIBLE. Brock Bowers at TE couldn't save you. Brian Thomas in the flex might as well have stayed on the bench.</p>
+            <p>This isn't just a bad week - this is a CATASTROPHIC FAILURE of epic proportions. When your entire roster decides to collectively take the week off while your opponent drops 151.85, you get 86.3 points and a 65.55-point beatdown that will live in INFAMY.</p>
+            <p>At 4-9 with 1,453 points, the season is over. But this? This is the kind of performance that gets screenshotted and saved for the offseason roast sessions. This is the kind of loss that becomes LEGEND for all the wrong reasons. This is the number that will haunt you.</p>
+            <p>86.3 points while your opponent puts up 151.85. That's not even competitive. That's not even CLOSE to competitive. That's getting absolutely DESTROYED and having no earthly explanation for what went wrong. Every single decision. Every single starter. Everything failed SIMULTANEOUSLY.</p>
+            <p>The worst part? You had decent players! Kyren Williams is a stud! Brock Bowers is elite! But when your roster decides to implode while facing the buzzsaw that was JackinGoff in Week 13, there is NO recovering from that kind of embarrassment. This is the loss that defines your entire season.</p>
         </div>
 
         <div class="section">
             <h2 class="section-title">🤓 NERD NUGGETS 🤓</h2>
             
             <div class="nerd-nugget">
-                <strong>TOP SCORER:</strong> tim7w (143.8) — Absolutely dominant performance. Championship-caliber stuff.
+                <strong>TOP SCORER:</strong> JackinGoff (151.85) — The highest score of the entire season. Absolutely DOMINANT.
             </div>
 
             <div class="nerd-nugget">
-                <strong>SECOND PLACE:</strong> Kempsey Cum and fuck mes (134.8) — Pete keeps rolling with another elite performance.
+                <strong>SECOND PLACE:</strong> Mals Pals (144) — A 4-9 team playing like championship contenders.
             </div>
 
             <div class="nerd-nugget">
-                <strong>THIRD PLACE:</strong> JackinGoff (127.05) — Jacob moves to 10-1 with another solid week.
+                <strong>THIRD PLACE:</strong> Surtainly Autistic (127.45) — PackJhilp showing spoiler potential.
             </div>
 
             <div class="nerd-nugget">
-                <strong>CLOSEST GAME:</strong> They Hit The 2nd Bower (104.2) over Kmet the frog (95.6) by 8.6 points — The only competitive matchup of the week.
+                <strong>BIGGEST BLOWOUT:</strong> JackinGoff (151.85) over They Hit The 2nd Bower (86.3) by 65.55 points — The biggest massacre of the season.
             </div>
 
             <div class="nerd-nugget">
-                <strong>BIGGEST BLOWOUT:</strong> Kempsey (134.8) over Rashee's (79.3) by 55.5 points — Pete with another massacre.
+                <strong>CLOSEST GAME:</strong> tim7w (118.5) over Deep Balls and Grimace (103.6) by 14.9 points — The only competitive matchup of the week.
             </div>
 
             <div class="nerd-nugget">
-                <strong>BIGGEST DISAPPOINTMENT:</strong> Rashee's Ricests (79.3) — Lowest score of the week by a massive margin. Brutal performance.
+                <strong>BIGGEST DISAPPOINTMENT:</strong> They Hit The 2nd Bower (86.3) — The lowest score of Week 13 by a wide margin.
             </div>
 
             <div class="nerd-nugget">
-                <strong>QUALITY LOSS:</strong> Post Chubb Depression scoring 116.25 and losing by 10.8. Would've won at least 4 other matchups this week.
+                <strong>UPSET OF THE WEEK:</strong> MaHomie N Herbie taking down 11-1 Pete. DazzaD1 keeping playoff hopes alive with a crucial win.
             </div>
 
             <div class="nerd-nugget">
-                <strong>10-1 CLUB:</strong> Both Pelicanpete (1775 pts) and Jacob0973 (1438 pts) are now 10-1. Championship game preview?
+                <strong>HEARTBREAK OF THE SEASON:</strong> Kmet the frog officially eliminated at 4-9 after losing FOUR games by approximately one point. Absolutely BRUTAL.
+            </div>
+
+            <div class="nerd-nugget">
+                <strong>POINTS LEADER:</strong> Pelicanpete still dominates with 2,019 total points despite the Week 13 loss. Championship-caliber point total.
+            </div>
+
+            <div class="nerd-nugget">
+                <strong>RECORD LEADER:</strong> JackinGoff at 12-1 is the #1 seed heading into the final two weeks. Best record in the league.
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">🔮 WEEK 12 FORECAST 🔮</h2>
+            <h2 class="section-title">🔮 WEEK 14 FORECAST 🔮</h2>
             
-            <p>We're entering the FINAL stretch, folks. Eleven weeks down, THREE weeks left in the regular season. The top of the standings is LOCKED — Pete and Jacob are both 10-1 and headed to the playoffs as the top two seeds. tim7w at 8-3 is essentially locked in. But after that? It's CHAOS at the playoff bubble, and every game matters.</p>
+            <p>This is IT, folks. ONE WEEK LEFT before the playoffs begin. Thirteen weeks down, ONE week to go. The playoff picture is COMPLETELY SET except for ONE spot - the #6 seed. Everything comes down to Week 14.</p>
 
             <div class="forecast">
-                <h4>🚨 PLAYOFF RACE WATCH 🚨</h4>
-                <p><strong>LOCKED IN (Top Seeds):</strong> Kempsey (10-1, 1775 pts), JackinGoff (10-1, 1438 pts) — These two are battling for the #1 seed</p>
-                <p><strong>ESSENTIALLY LOCKED:</strong> tim7w (8-3, 1425 pts) — Would need a collapse to miss playoffs</p>
-                <p><strong>IN STRONG POSITION:</strong> Push Tush (7-4, 1375 pts) — One more win likely locks it up</p>
-                <p><strong>BUBBLE TEAMS (DESPERATE):</strong> MaHomie (6-5, 1384 pts), Post Chubb (5-6, 1339 pts) — Every game is MUST-WIN</p>
-                <p><strong>MIRACLE NEEDED:</strong> Rashee's (4-7), They Hit (4-7) — Would need to win out AND get major help</p>
-                <p><strong>ELIMINATED:</strong> All 3-8 teams — Playing for pride and spoiler</p>
+                <h4>🚨 PLAYOFF RACE STATUS (6 SPOTS) 🚨</h4>
+                <p><strong>LOCKED IN (#1 SEED):</strong> JackinGoff (12-1, 1707 pts) - Jacob has the #1 seed locked.</p>
+                <p><strong>LOCKED IN (#2 SEED):</strong> Kempsey (11-2, 2019 pts) - Pete has the #2 seed and is the FAVORITE to win it all with 2,019 total points.</p>
+                <p><strong>LOCKED IN (#3 SEED):</strong> tim7w (10-3, 1694 pts) - Locked into playoffs.</p>
+                <p><strong>LOCKED IN (#4 SEED):</strong> Push Tush (8-5, 1628 pts) - Locked in.</p>
+                <p><strong>LOCKED IN (#5 SEED):</strong> MaHomie N Herbie (7-6, 1653 pts) - DazzaD1 has clinched a playoff spot.</p>
+                <p><strong>THE ONLY SPOT UP FOR GRABS (#6):</strong> Post Chubb Depression (6-7, 1510 pts) vs Surtainly Autistic (5-8, 1516 pts) - THIS is the ONLY drama left. Post Chubb at 6-7 needs to win Week 14 to clinch. Surtainly Autistic at 5-8 needs to win AND needs Post Chubb to lose. Winner takes the final playoff spot. Loser goes home. It ALL comes down to Week 14.</p>
+                <p><strong>ELIMINATED:</strong> Everyone 4-9 and worse - Season over, playing for pride.</p>
             </div>
 
             <div class="forecast">
-                <h4>⚠️ KEY STORYLINES ⚠️</h4>
-                <p><strong>The Battle for #1:</strong> Pete (1775 pts) vs Jacob (1438 pts) — both 10-1. Pete has the massive points lead, but Jacob is right there in the standings. The #1 seed might come down to Week 14.</p>
-                <p><strong>The 5-6 Desperation:</strong> Post Chubb Depression is 5-6 and fighting for their playoff LIFE. One more loss and they're likely eliminated. These final three weeks are ALL playoff games for them.</p>
-                <p><strong>The 6-5 Survival:</strong> MaHomie N Herbie at 6-5 NEEDS wins. Probably needs to go 2-1 minimum to have a shot. The margin for error is GONE.</p>
-                <p><strong>GrifReaper's Momentum:</strong> Push Tush at 7-4 is in the driver's seat. One more win and they're in. The Detroit stack is MONEY, and this team is peaking at the right time.</p>
-                <p><strong>The Spoiler Teams:</strong> All four 3-8 teams and both 4-7 teams are playing with house money. They're absolutely capable of ruining someone's playoff dreams over these final three weeks.</p>
+                <h4>⚠️ KEY STORYLINES FOR WEEK 14 ⚠️</h4>
+                <p><strong>The Battle for Spot #6:</strong> THIS is the ONLY storyline that matters for the playoff race. Post Chubb Depression (6-7) vs Surtainly Autistic (5-8). Post Chubb wins Week 14, they're in. Post Chubb loses AND Surtainly Autistic wins, then PackJhilp steals the final playoff spot. After dropping 127.45 in Week 13, Surtainly Autistic has shown they've got playoff-caliber firepower - but are they too late?</p>
+                <p><strong>Pete vs Jacob - The Favorite vs The #1 Seed:</strong> Jacob has the best record at 12-1 and the #1 seed. But Pete has 2,019 total points - that's 312 MORE than Jacob. When you have that kind of point differential, you're the championship FAVORITE regardless of seeding. The question heading into playoffs: Can anyone beat Pete when he's scoring at this level?</p>
+                <p><strong>Push Tush's Concerns:</strong> That 38.4-point loss to a 4-9 team in Week 13 should be TERRIFYING heading into playoffs. You're locked into the #4 seed, but that kind of collapse at this stage of the season is concerning.</p>
+                <p><strong>The Spoiler Teams:</strong> Four teams at 4-9 are mathematically eliminated but still playing Week 14. Mals Pals just dropped 144. These teams can still ruin someone's week heading into playoffs.</p>
+            </div>
+
+            <div class="forecast">
+                <h4>🎭 THE DUNDAS TRAGEDY 🎭</h4>
+                <p>Let's take a proper moment to memorialize what happened to williamdundas27 this season. Kmet the frog finishes at 4-9 with 1,471 points, officially eliminated from playoff contention. But here's what makes this TRAGIC:</p>
+                <p>FOUR losses by approximately one point. That's not just unfortunate - that's HISTORICALLY CRUEL. If just TWO of those games had gone the other way with one more yard, one more catch, one more field goal, we're looking at a 6-7 team still fighting for playoffs. If THREE had gone the other way, it's 7-6 and in the driver's seat.</p>
+                <p>This is the kind of season that makes you question the fundamental fairness of fantasy football. C.J. Stroud, James Cook, Ja'Marr Chase - this is a talented roster that got DESTROYED by the cruelest margins imaginable. This isn't about bad decisions or poor management. This is about the fantasy gods deciding they hate you specifically.</p>
+                <p>This is the kind of season that gets talked about for YEARS. "Remember when Dundas lost four games by a point and missed the playoffs?" This is LEGEND status, just for all the wrong reasons. The only consolation? williamdundas27 can play COMPLETE spoiler over the next two weeks with nothing to lose and everything to prove.</p>
             </div>
 
             <div style="margin-top: 20px; padding: 20px; background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 6px;">
-                <h4 style="color: #e65100; margin-bottom: 15px; font-size: 1.2em;">THREE WEEKS. THAT'S IT.</h4>
-                <p style="color: #34495e; line-height: 1.8;">The playoff spots are being decided RIGHT NOW. Check your injury reports obsessively. Work that waiver wire like your season depends on it (because it does). Make the tough calls. Trust your gut. In three weeks, six teams will be celebrating playoff berths and six teams will be wondering what could have been. The margin for error is GONE. Every single point matters. Every single decision matters. Every single game matters. This is where championships are won and lost. Don't blow it now.</p>
+                <h4 style="color: #e65100; margin-bottom: 15px; font-size: 1.2em;">ONE WEEK. ONE PLAYOFF SPOT. WINNER TAKES ALL.</h4>
+                <p style="color: #34495e; line-height: 1.8;">The top five seeds are LOCKED. Jacob (#1), Pete (#2), tim7w (#3), Push Tush (#4), and MaHomie (#5) are all heading to the playoffs. But that FINAL spot - the #6 seed - comes down to ONE game in Week 14. Post Chubb Depression (6-7) controls their destiny. Win and you're in. Lose and Surtainly Autistic (5-8) can steal it with a win. After thirteen weeks, it ALL comes down to this. One week. One spot. Everything on the line. This is what fantasy football is all about.</p>
             </div>
         </div>
 
         <div class="footer">
-            That's your Week 11 Gridiron Gazette! The playoff race is getting DESPERATE. 🏈🔥
+            That's your Week 13 Gridiron Gazette! Jacob dominates with 151.85, Pete's still the favorite with 2,019 pts, and Dundas deserved better. One week left. One spot remains. 🏈💔
         </div>
     </div>
-
-    <script>
-        document.getElementById('teamSelect').addEventListener('change', function() {
-            const selectedTeam = this.value;
-            
-            const matchups = document.querySelectorAll('.matchup');
-            const teamRows = document.querySelectorAll('.team-row');
-            const toastSection = document.querySelector('.toast');
-            const roastSection = document.querySelector('.roast');
-            
-            if (selectedTeam === 'all') {
-                matchups.forEach(m => m.classList.remove('filtered-out', 'highlight-team'));
-                teamRows.forEach(t => t.classList.remove('filtered-out', 'highlight-team'));
-                if (toastSection) toastSection.classList.remove('filtered-out');
-                if (roastSection) roastSection.classList.remove('filtered-out');
-            } else {
-                matchups.forEach(matchup => {
-                    const teams = matchup.getAttribute('data-teams');
-                    if (teams && teams.includes(selectedTeam)) {
-                        matchup.classList.remove('filtered-out');
-                        matchup.classList.add('highlight-team');
-                    } else {
-                        matchup.classList.add('filtered-out');
-                        matchup.classList.remove('highlight-team');
-                    }
-                });
-                
-                teamRows.forEach(row => {
-                    const team = row.getAttribute('data-team');
-                    if (team === selectedTeam) {
-                        row.classList.remove('filtered-out');
-                        row.classList.add('highlight-team');
-                    } else {
-                        row.classList.add('filtered-out');
-                        row.classList.remove('highlight-team');
-                    }
-                });
-                
-                if (toastSection) {
-                    const toastTeam = toastSection.getAttribute('data-team');
-                    if (toastTeam === selectedTeam) {
-                        toastSection.classList.remove('filtered-out');
-                    } else {
-                        toastSection.classList.add('filtered-out');
-                    }
-                }
-                
-                if (roastSection) {
-                    const roastTeam = roastSection.getAttribute('data-team');
-                    if (roastTeam === selectedTeam) {
-                        roastSection.classList.remove('filtered-out');
-                    } else {
-                        roastSection.classList.add('filtered-out');
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
